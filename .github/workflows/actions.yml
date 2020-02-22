@@ -64,7 +64,12 @@ jobs:
       - name: Run ls
         run: ls
 
+      - name: Check dir
+        run: |
+          cd build
+          ls
+
       - name: Run
-        run: ./build/dist/hello
+        run: ./build/hello
 
 
