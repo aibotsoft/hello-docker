@@ -3,6 +3,7 @@ on: [push]
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  DOCKER_TAG: $DOCKER_USERNAME/$GITHUB_WORKFLOW:$GITHUB_RUN_NUMBER
   CGO_ENABLED: 0
 jobs:
 
@@ -35,14 +36,14 @@ jobs:
           name: dist
           path: dist/
 
-#      - name: Docker build
-#        run: docker image build -f test.Dockerfile -t $DOCKER_USERNAME/$GITHUB_WORKFLOW:$GITHUB_RUN_ID .
-#
-#      - name: Docker login
-#        run: docker login -u $DOCKER_USERNAME --password $DOCKER_PASSWORD
-#
-#      - name: Docker push
-#        run: docker image push $DOCKER_USERNAME/$GITHUB_WORKFLOW:$GITHUB_RUN_ID
+      - name: Docker build
+        run: docker image build -f Dockerfile -t $DOCKER_TAG .
+
+      - name: Docker login
+        run: docker login -u $DOCKER_USERNAME --password $DOCKER_PASSWORD
+
+      - name: Docker push
+        run: docker image push $DOCKER_USERNAME/$GITHUB_WORKFLOW:$GITHUB_RUN_ID
 
 #    - name: Get dependencies
 #      run: |
