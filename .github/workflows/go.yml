@@ -22,11 +22,8 @@ jobs:
     - name: Check go version
       run: go version
 
-    - name: Check docker version
-      run: docker version
-
-    - name: Check docker version
-      run: docker version
+#    - name: Check docker version
+#      run: docker version
 
 #    - name: Get dependencies
 #      run: |
@@ -35,4 +32,4 @@ jobs:
       run: go build -o hello ./src/main.go
 
     - name: Run
-      run: hello
+      run: ls
