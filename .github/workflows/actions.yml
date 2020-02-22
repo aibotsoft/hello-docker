@@ -21,12 +21,6 @@ jobs:
       - name: Build
         run: go build -o dist/service src/main.go
 
-#      - name: Upload build
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: dist
-#          path: dist/
-
       - name: Docker build
         run: docker image build -f Dockerfile -t $DOCKER_USERNAME/$GITHUB_WORKFLOW:$GITHUB_RUN_NUMBER .
 
@@ -73,3 +67,9 @@ jobs:
 #        run: go version
 #      - name: Run
 #        run: dist/hello
+
+#      - name: Upload build
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: dist
+#          path: dist/
