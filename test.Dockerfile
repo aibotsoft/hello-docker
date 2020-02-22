@@ -1,5 +1,5 @@
 FROM alpine
 
-COPY dist dist
-WORKDIR dist
-CMD ["/hello"]
+COPY dist/ .
+#WORKDIR dist
+CMD ["/src"]
