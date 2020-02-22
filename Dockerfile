@@ -1,3 +1,4 @@
-FROM alpine
+FROM scratch
 
-RUN echo "hello world"
+COPY dist/ .
+CMD ["/hello"]

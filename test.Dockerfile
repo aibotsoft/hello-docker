@@ -1,5 +1,4 @@
-FROM alpine
+FROM scratch
 
 COPY dist/ .
-#WORKDIR dist
 CMD ["/src"]

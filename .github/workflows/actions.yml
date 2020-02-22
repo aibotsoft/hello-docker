@@ -24,7 +24,7 @@ jobs:
 #        run: go version
 
       - name: Build
-        run: go build -o ./dist/hello ./src/main.go
+        run: go build -o dist/hello src/main.go
 
       - name: Run
         run: dist/hello
@@ -32,7 +32,7 @@ jobs:
       - name: Upload build
         uses: actions/upload-artifact@v1
         with:
-          name: build
+          name: dist
           path: dist/
 
 #      - name: Docker build
