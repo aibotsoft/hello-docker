@@ -27,7 +27,7 @@ jobs:
       run: docker build .
 
     - name: Docker login
-      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      run: docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
 
 #    - name: Get dependencies
 #      run: |
@@ -40,3 +40,6 @@ jobs:
 
     - name: Run
       run: ./hello
+
+  dockerbuild:
+    name: dockerbuild
