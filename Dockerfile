@@ -2,4 +2,4 @@ FROM scratch
 
 COPY dist/ go/
 
-CMD ["/go/run"]
+CMD ["/go/hello"]
