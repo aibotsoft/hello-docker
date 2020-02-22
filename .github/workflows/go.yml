@@ -1,7 +1,7 @@
 name: Go
 on: [push]
 env:
-  FOO_SECRET: ${{ secrets.FOO_SECRET }}
+  DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
   CGO_ENABLED: 0
 jobs:
 
@@ -21,6 +21,9 @@ jobs:
 
     - name: Check go version
       run: go version
+
+    - name: Check docker version
+      run: docker version
 
 #    - name: Get dependencies
 #      run: |
