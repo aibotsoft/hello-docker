@@ -51,5 +51,12 @@ jobs:
 #      run: |
 #        go get -v -t -d ./...
 
-#  dockerbuild:
-#    name: dockerbuild
+  run:
+    name: run
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run
+        run: ./dist/hello
+
+
