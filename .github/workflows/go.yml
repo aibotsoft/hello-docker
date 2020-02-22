@@ -31,5 +31,8 @@ jobs:
     - name: Build
       run: go build -o hello ./src/main.go
 
-    - name: Run
+    - name: Run ls
       run: ls
+
+    - name: Run
+      run: ./hello
