@@ -38,9 +38,9 @@ jobs:
           name: build
           path: ./dist/
 
-#      - name: Docker build
-#        run: docker image build -t $DOCKER_USERNAME/$GITHUB_WORKFLOW:$GITHUB_RUN_ID .
-#
+      - name: Docker build
+        run: docker image build -f test.Dockerfile -t $DOCKER_USERNAME/$GITHUB_WORKFLOW:$GITHUB_RUN_ID .
+
 #      - name: Docker login
 #        run: docker login -u $DOCKER_USERNAME --password $DOCKER_PASSWORD
 #
@@ -51,25 +51,23 @@ jobs:
 #      run: |
 #        go get -v -t -d ./...
 
-  run:
-    name: run
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download build
-        uses: actions/download-artifact@v1
-        with:
-          name: build
-
-      - name: Run ls
-        run: ls
-
-      - name: Check dir
-        run: |
-          cd build
-          ls
-
-      - name: Run
-        run: ./build/hello
-
-
+#  run:
+#    name: run
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Download build
+#        uses: actions/download-artifact@v1
+#        with:
+#          name: dist
+#
+#      - name: Run ls
+#        run: ls
+#
+#      - name: Check dir
+#        run: |
+#          cd dist
+#          ls
+#
+#      - name: Run
+#        run: ./dist/hello
