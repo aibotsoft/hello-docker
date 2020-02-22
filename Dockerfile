@@ -1,5 +1,5 @@
 FROM scratch
 
-COPY dist/ go/run
+COPY dist/ go/
 
 CMD ["/go/run"]
