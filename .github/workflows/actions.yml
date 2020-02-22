@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build
-        run: go build -o dist/hello src/main.go
+        run: go build -o dist/service src/main.go
 
       - name: Upload build
         uses: actions/upload-artifact@v1

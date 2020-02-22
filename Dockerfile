@@ -1,5 +1,5 @@
 FROM scratch
 
-COPY dist/ go/
+COPY dist/ .
 
-CMD ["/go/hello"]
+CMD ["/service"]
