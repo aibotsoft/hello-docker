@@ -1,7 +1,8 @@
 name: Go
 on: [push]
 env:
-  DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   CGO_ENABLED: 0
 jobs:
 
@@ -24,6 +25,9 @@ jobs:
 
     - name: Docker build
       run: docker build .
+
+    - name: Docker login
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
 #    - name: Get dependencies
 #      run: |
