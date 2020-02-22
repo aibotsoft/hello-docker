@@ -33,3 +33,6 @@ jobs:
 #        go get -v -t -d ./...
     - name: Build
       run: go build -o hello ./src/main.go
+
+    - name: Run
+      run: hello
